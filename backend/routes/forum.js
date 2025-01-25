@@ -6,15 +6,24 @@ const router = express.Router();
 
 // Create a new post
 router.post("/posts", async (req, res) => {
-  try {
-    const { title, content, author } = req.body;
-    const newPost = new Post({ title, content, author });
-    await newPost.save();
-    res.status(201).json(newPost);
-  } catch (error) {
-    res.status(500).json({ error: "Error creating post" });
-  }
-});
+    try {
+      const { title, content, author, category } = req.body;
+  
+      // Validate inputs
+      if (!title || !content || !author || !category) {
+        return res.status(400).json({ error: "All fields are required" });
+      }
+  
+      const newPost = new Post({ title, content, author, category, likes: 0 });
+      await newPost.save();
+  
+      res.status(201).json(newPost);
+    } catch (error) {
+      console.error("Error creating post:", error);
+      res.status(500).json({ error: "Error creating post" });
+    }
+  });
+  
 
 // Get all posts
 router.get("/posts", async (req, res) => {
@@ -110,15 +119,32 @@ try {
 }
 });
 
-// Like a Post (Upvote)
+// Like a Post (One Like Per User)
 router.post("/posts/:id/like", async (req, res) => {
     try {
+      const { userId } = req.body; // Get the user ID (nickname)
+  
+      if (!userId) {
+        return res.status(400).json({ error: "User ID (nickname) is required." });
+      }
+  
       const post = await Post.findById(req.params.id);
+      if (!post) return res.status(404).json({ error: "Post not found." });
+  
+      // ✅ Prevent multiple likes from the same user
+      if (post.likedBy.includes(userId)) {
+        return res.status(400).json({ error: "You have already liked this post." });
+      }
+  
+      // ✅ Add like and store the user in likedBy array
       post.likes += 1;
+      post.likedBy.push(userId);
       await post.save();
+  
       res.json({ likes: post.likes });
     } catch (error) {
-      res.status(500).json({ error: "Error liking post" });
+      console.error("Error liking post:", error);
+      res.status(500).json({ error: "Error liking post." });
     }
   });
   
