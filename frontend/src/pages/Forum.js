@@ -13,7 +13,8 @@ const Forum = () => {
   return (
     <div>
       <h2>Community Forum</h2>
-      <Link to="/create-post">Create a Post</Link>
+      <Link to="/create-post"><button>Create a Post</button></Link> 
+
       {posts.map((post) => (
         <div key={post._id}>
           <h3><Link to={`/posts/${post._id}`}>{post.title}</Link></h3>

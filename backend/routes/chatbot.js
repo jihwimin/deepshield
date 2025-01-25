@@ -24,7 +24,8 @@ router.post("/chat", async (req, res) => {
           - If the user expresses distress, sadness, or struggles, respond warmly and **naturally ask** if they would like assistance in finding therapy options.
           - Do **not force** therapy recommendations. Instead, let the user guide the conversation.
           - Keep your responses short and easy to understand.
-          - Always be **gentle and reassuring** in tone.` 
+          - Always be **gentle and reassuring** in tone.
+          - If a user asks something unrelated to mental health support, politely state that it is beyond your scope and refrain from providing misinformation.`
         },
         { role: "user", content: message },
       ],
