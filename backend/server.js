@@ -18,6 +18,8 @@ console.log("Routes loaded: /api/chatbot");
 // Routes
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/chatbot", require("./routes/chatbot"));
+app.use("/api/forum", require("./routes/forum"));
+
 
 // Start server
 const PORT = process.env.PORT || 5001;
