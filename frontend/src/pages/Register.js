@@ -12,11 +12,15 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${API_BASE_URL}/api/auth/register`, formData);
+      const res = await axios.post(`${API_BASE_URL}/api/auth/register`, formData);
       alert("Registration successful! Please login.");
       navigate("/login");
     } catch (err) {
-      alert(err.response.data.error);
+      if (err.response) {
+        alert(err.response.data.error || "An error occurred. Please try again.");
+      } else {
+        alert("Server is not responding. Check your backend.");
+      }
     }
   };
 
