@@ -46,31 +46,60 @@ router.get("/posts/:id", async (req, res) => {
   }
 });
 
-// Edit a Post
+// ✅ Edit a Post (Only Owner)
 router.put("/posts/:id", async (req, res) => {
-  try {
-    const { title, content, category } = req.body;
-    const updatedPost = await Post.findByIdAndUpdate(
-      req.params.id,
-      { title, content, category },
-      { new: true }
-    );
-    res.json(updatedPost);
-  } catch (error) {
-    res.status(500).json({ error: "Error updating post" });
-  }
-});
-
-// Delete a Post
+    try {
+      const { title, content, category, userId } = req.body; // Get the userId (nickname)
+  
+      if (!userId) {
+        return res.status(400).json({ error: "User ID (nickname) is required." });
+      }
+  
+      const post = await Post.findById(req.params.id);
+      if (!post) return res.status(404).json({ error: "Post not found." });
+  
+      // ✅ Restrict editing to the post owner
+      if (post.author !== userId) {
+        return res.status(403).json({ error: "You are not the owner of this post." });
+      }
+  
+      post.title = title;
+      post.content = content;
+      post.category = category;
+      await post.save();
+  
+      res.json(post);
+    } catch (error) {
+      console.error("Error updating post:", error);
+      res.status(500).json({ error: "Error updating post." });
+    }
+  });
+  
+// ✅ Delete a Post (Only Owner)
 router.delete("/posts/:id", async (req, res) => {
-  try {
-    await Post.findByIdAndDelete(req.params.id);
-    await Comment.deleteMany({ postId: req.params.id }); // Delete all related comments
-    res.json({ message: "Post deleted successfully" });
-  } catch (error) {
-    res.status(500).json({ error: "Error deleting post" });
-  }
+try {
+    const { userId } = req.body; // Get the userId (nickname)
+
+    if (!userId) {
+    return res.status(400).json({ error: "User ID (nickname) is required." });
+    }
+
+    const post = await Post.findById(req.params.id);
+    if (!post) return res.status(404).json({ error: "Post not found." });
+
+    // ✅ Restrict deleting to the post owner
+    if (post.author !== userId) {
+    return res.status(403).json({ error: "You are not the owner of this post." });
+    }
+
+    await post.deleteOne();
+    res.json({ message: "Post deleted successfully." });
+} catch (error) {
+    console.error("Error deleting post:", error);
+    res.status(500).json({ error: "Error deleting post." });
+}
 });
+  
 
 // Create a comment on a post
 router.post("/posts/:id/comments", async (req, res) => {
@@ -94,30 +123,57 @@ router.get("/posts/:id/comments", async (req, res) => {
   }
 });
 
-// Edit a Comment
+// ✅ Edit a Comment (Only Owner)
 router.put("/posts/:postId/comments/:commentId", async (req, res) => {
     try {
-      const { content } = req.body;
-      const updatedComment = await Comment.findByIdAndUpdate(
-        req.params.commentId,
-        { content },
-        { new: true }
-      );
-      res.json(updatedComment);
+      const { content, userId } = req.body;
+  
+      if (!userId) {
+        return res.status(400).json({ error: "User ID (nickname) is required." });
+      }
+  
+      const comment = await Comment.findById(req.params.commentId);
+      if (!comment) return res.status(404).json({ error: "Comment not found." });
+  
+      // ✅ Restrict editing to the comment owner
+      if (comment.author !== userId) {
+        return res.status(403).json({ error: "You are not the owner of this comment." });
+      }
+  
+      comment.content = content;
+      await comment.save();
+  
+      res.json(comment);
     } catch (error) {
-      res.status(500).json({ error: "Error updating comment" });
+      console.error("Error updating comment:", error);
+      res.status(500).json({ error: "Error updating comment." });
     }
   });
   
-// Delete a Comment
+// ✅ Delete a Comment (Only Owner)
 router.delete("/posts/:postId/comments/:commentId", async (req, res) => {
 try {
-    await Comment.findByIdAndDelete(req.params.commentId);
-    res.json({ message: "Comment deleted successfully" });
+    const { userId } = req.body;
+
+    if (!userId) {
+    return res.status(400).json({ error: "User ID (nickname) is required." });
+    }
+
+    const comment = await Comment.findById(req.params.commentId);
+    if (!comment) return res.status(404).json({ error: "Comment not found." });
+
+    // ✅ Restrict deleting to the comment owner
+    if (comment.author !== userId) {
+    return res.status(403).json({ error: "You are not the owner of this comment." });
+    }
+
+    await comment.deleteOne();
+    res.json({ message: "Comment deleted successfully." });
 } catch (error) {
-    res.status(500).json({ error: "Error deleting comment" });
+    console.error("Error deleting comment:", error);
+    res.status(500).json({ error: "Error deleting comment." });
 }
-});
+});  
 
 // Like a Post (One Like Per User)
 router.post("/posts/:id/like", async (req, res) => {

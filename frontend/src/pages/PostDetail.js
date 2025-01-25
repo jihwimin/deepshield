@@ -10,6 +10,7 @@ const PostDetail = () => {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState("");
   const [loading, setLoading] = useState(true);
+  const user = JSON.parse(localStorage.getItem("user")); // Get logged-in user
 
   useEffect(() => {
     const fetchPostAndComments = async () => {
@@ -27,27 +28,9 @@ const PostDetail = () => {
     fetchPostAndComments();
   }, [id]);
 
-  const handleCommentSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const user = JSON.parse(localStorage.getItem("user"));
-      if (!user) {
-        alert("You must be logged in to comment.");
-        return;
-      }
-
-      const newComment = { content: commentText, author: user.nickname };
-      const res = await axios.post(`${API_BASE_URL}/api/forum/posts/${id}/comments`, newComment);
-
-      setComments([...comments, res.data]);
-      setCommentText("");
-    } catch (error) {
-      alert("Error posting comment.");
-    }
-  };
-
   const handleEditPost = async () => {
+    if (!user || user.nickname !== post.author) return; // Restrict access
+
     const newTitle = prompt("Enter new title:", post.title);
     const newContent = prompt("Enter new content:", post.content);
     if (!newTitle || !newContent) return;
@@ -57,72 +40,83 @@ const PostDetail = () => {
         title: newTitle,
         content: newContent,
         category: post.category,
+        userId: user.nickname,
       });
 
       setPost(res.data);
       alert("Post updated successfully!");
     } catch (error) {
-      alert("Error updating post.");
+      alert(error.response?.data?.error || "Error updating post.");
     }
   };
 
   const handleDeletePost = async () => {
+    if (!user || user.nickname !== post.author) return; // Restrict access
+
     if (!window.confirm("Are you sure you want to delete this post?")) return;
 
     try {
-      await axios.delete(`${API_BASE_URL}/api/forum/posts/${post._id}`);
+      await axios.delete(`${API_BASE_URL}/api/forum/posts/${post._id}`, {
+        data: { userId: user.nickname },
+      });
+
       alert("Post deleted!");
       navigate("/forum");
     } catch (error) {
-      alert("Error deleting post.");
+      alert(error.response?.data?.error || "Error deleting post.");
     }
   };
 
   const handleLikePost = async () => {
+    if (!user) {
+      alert("You must be logged in to like a post.");
+      return;
+    }
+
     try {
-      const user = JSON.parse(localStorage.getItem("user"));
-      if (!user) {
-        alert("You must be logged in to like a post.");
-        return;
-      }
-  
       const res = await axios.post(`${API_BASE_URL}/api/forum/posts/${post._id}/like`, {
-        userId: user.nickname, // ✅ Send the user's nickname
+        userId: user.nickname,
       });
-  
+
       setPost((prevPost) => ({ ...prevPost, likes: res.data.likes }));
     } catch (error) {
-      console.error("Error liking post:", error);
       alert(error.response?.data?.error || "Error liking post.");
     }
   };
-  
 
-  const handleEditComment = async (commentId, currentContent) => {
+  const handleEditComment = async (commentId, currentContent, commentAuthor) => {
+    if (!user || user.nickname !== commentAuthor) return; // Restrict access
+
     const newContent = prompt("Edit your comment:", currentContent);
     if (!newContent) return;
 
     try {
-      const res = await axios.put(`${API_BASE_URL}/api/forum/posts/${id}/comments/${commentId}`, {
+      const res = await axios.put(`${API_BASE_URL}/api/forum/posts/${post._id}/comments/${commentId}`, {
         content: newContent,
+        userId: user.nickname,
       });
 
       setComments(comments.map(comment => comment._id === commentId ? res.data : comment));
       alert("Comment updated successfully!");
     } catch (error) {
-      alert("Error updating comment.");
+      alert(error.response?.data?.error || "Error updating comment.");
     }
   };
 
-  const handleDeleteComment = async (commentId) => {
+  const handleDeleteComment = async (commentId, commentAuthor) => {
+    if (!user || user.nickname !== commentAuthor) return; // Restrict access
+
     if (!window.confirm("Are you sure you want to delete this comment?")) return;
 
     try {
-      await axios.delete(`${API_BASE_URL}/api/forum/posts/${id}/comments/${commentId}`);
+      await axios.delete(`${API_BASE_URL}/api/forum/posts/${post._id}/comments/${commentId}`, {
+        data: { userId: user.nickname },
+      });
+
       setComments(comments.filter(comment => comment._id !== commentId));
       alert("Comment deleted successfully!");
     } catch (error) {
-      alert("Error deleting comment.");
+      alert(error.response?.data?.error || "Error deleting comment.");
     }
   };
 
@@ -130,6 +124,7 @@ const PostDetail = () => {
 
   return (
     <div>
+      <button onClick={() => navigate("/forum")} style={{ marginBottom: "15px" }}>⬅ Back</button>
       {post && (
         <>
           <h2>{post.title}</h2>
@@ -142,9 +137,13 @@ const PostDetail = () => {
           {/* Like Post Button */}
           <button onClick={handleLikePost}>👍 Like ({post.likes || 0})</button>
 
-          {/* Edit & Delete Post Buttons */}
-          <button onClick={handleEditPost} style={{ marginLeft: "10px" }}>✏️ Edit</button>
-          <button onClick={handleDeletePost} style={{ marginLeft: "10px", color: "red" }}>🗑 Delete</button>
+          {/* ✅ Only show edit & delete buttons for post owner */}
+          {user && user.nickname === post.author && (
+            <>
+              <button onClick={handleEditPost} style={{ marginLeft: "10px" }}>✏️ Edit</button>
+              <button onClick={handleDeletePost} style={{ marginLeft: "10px", color: "red" }}>🗑 Delete</button>
+            </>
+          )}
         </>
       )}
 
@@ -155,15 +154,35 @@ const PostDetail = () => {
             <p><strong>{comment.author}:</strong> {comment.content}</p>
             <p><small>Posted on: {new Date(comment.createdAt).toLocaleString()}</small></p>
 
-            {/* Edit & Delete Comment Buttons */}
-            <button onClick={() => handleEditComment(comment._id, comment.content)}>✏️ Edit</button>
-            <button onClick={() => handleDeleteComment(comment._id)} style={{ marginLeft: "10px", color: "red" }}>🗑 Delete</button>
+            {/* ✅ Only show edit & delete buttons for comment owner */}
+            {user && user.nickname === comment.author && (
+              <>
+                <button onClick={() => handleEditComment(comment._id, comment.content, comment.author)}>✏️ Edit</button>
+                <button onClick={() => handleDeleteComment(comment._id, comment.author)} style={{ marginLeft: "10px", color: "red" }}>🗑 Delete</button>
+              </>
+            )}
           </div>
         ))
       )}
 
       {/* Comment Form */}
-      <form onSubmit={handleCommentSubmit}>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        if (!user) {
+          alert("You must be logged in to comment.");
+          return;
+        }
+
+        axios.post(`${API_BASE_URL}/api/forum/posts/${post._id}/comments`, {
+          content: commentText,
+          author: user.nickname,
+        }).then((res) => {
+          setComments([...comments, res.data]);
+          setCommentText("");
+        }).catch((error) => {
+          alert("Error posting comment.");
+        });
+      }}>
         <textarea
           value={commentText}
           onChange={(e) => setCommentText(e.target.value)}
