@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 
 const app = express();
 
@@ -12,8 +13,11 @@ app.use(express.json());
 // Connect to MongoDB
 connectDB();
 
+console.log("Routes loaded: /api/chatbot");
+
 // Routes
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/chatbot", require("./routes/chatbot"));
 
 // Start server
 const PORT = process.env.PORT || 5001;

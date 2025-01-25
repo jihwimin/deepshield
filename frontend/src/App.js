@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
+import Chatbot from "./pages/Chatbot";
 
 const App = () => {
   return (
@@ -14,8 +15,10 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          {/* Make Home Page the Dashboard */}
+          <Route path="/" element={<ProtectedRoute component={Dashboard} />} />
           <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />} />
-          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
       </Router>
     </AuthProvider>
