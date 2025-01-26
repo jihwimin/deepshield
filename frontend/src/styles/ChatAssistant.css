@@ -1,0 +1,115 @@
+/* Full Page Layout */
+.chat-container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 200px;
+    margin-bottom: 100px;
+
+  }
+  
+  /* Chat Header */
+  .chat-header {
+    background: #F7C9DC;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* Chat Messages */
+  .chat-messages {
+    height: 400px;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+  }
+  
+  /* AI and User Messages */
+  .message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-family: 'Inria Serif', serif;
+  }
+  
+  .message.bot {
+    justify-content: flex-start;
+  }
+  
+  .message.user {
+    justify-content: flex-end;
+  }
+  
+  /* AI Avatar */
+  .message-avatar {
+    width: 40px;
+    height: 40px;
+    background: #6D1B46;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  /* Message Text */
+  .message-text {
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    max-width: 60%;
+  }
+  
+  .message.bot .message-text {
+    background: #FF008D;
+    color: white;
+  }
+  
+  .message.user .message-text {
+    background: #E0E0E0;
+    color: black;
+  }
+  
+  /* Chat Input */
+  .chat-input {
+    display: flex;
+    align-items: center;
+    background: #E0E0E0;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 15px;
+    justify-content: space-between;
+  }
+  
+  .chat-input input {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    color: #7D7D7D;
+    font-family: 'Inria Serif', serif;
+  }
+  
+  .chat-input input::placeholder {
+    color: #A0A0A0;
+  }
+  
+  /* Mic Button */
+  .mic-btn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #F7C9DC;
+  }
+  

@@ -9,7 +9,6 @@ const Chatbot = () => {
   ]);
   const [userInput, setUserInput] = useState("");
 
-  // Function to send a message
   const handleSendMessage = async () => {
     if (!userInput.trim()) return;
 
@@ -30,13 +29,6 @@ const Chatbot = () => {
     }
   };
 
-  // Function to handle Enter key press
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault(); // Prevents accidental new lines
-      handleSendMessage();
-    }
-  };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "80vh", padding: "20px" }}>
@@ -54,13 +46,9 @@ const Chatbot = () => {
           type="text"
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
-          onKeyDown={handleKeyPress} // Handles Enter key
           placeholder="Type a message..."
-          style={{ flexGrow: 1, padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }}
         />
-        <button onClick={handleSendMessage} style={{ marginLeft: "10px", padding: "10px", borderRadius: "5px" }}>
-          Send
-        </button>
+        <button onClick={handleSendMessage}>Send</button>
       </div>
     </div>
   );
