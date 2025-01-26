@@ -31,7 +31,7 @@ DeepShield is committed to **empowering deepfake victims** through essential too
 - **Frontend:** Node.js  
 - **Backend:** Node.js
 - **Database:** MongoDB
-- **AI Chatbot:** Groq Cloud API,
+- **AI Chatbot:** Groq Cloud API
 - **Voice Chatbot:** Open API, Google Cloud API
 
 ## 📦 Installation & Setup  
