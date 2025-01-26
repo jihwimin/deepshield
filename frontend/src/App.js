@@ -9,6 +9,7 @@ import CreatePost from "./pages/CreatePost";
 import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import Chatbot from "./pages/Chatbot";
+import TalkingMentalCare from "./pages/TalkingMentalCare";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/create-post" element={<CreatePost />} /> 
           <Route path="/posts/:id" element={<PostDetail />} /> 
           <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/talking-mental-care" element={<TalkingMentalCare />} />
         </Routes>
       </Router>
     </AuthProvider>
