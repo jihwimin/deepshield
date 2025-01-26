@@ -1,9 +1,16 @@
-const express = require("express");
-const cors = require("cors");
-const connectDB = require("./config/db");
-const dotenv = require("dotenv");
-const path = require("path");
-require("dotenv").config();
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
+import connectDB from "./config/db.js"; // Ensure db.js is updated to ES module
+import authRoutes from "./routes/auth.js";
+import chatbotRoutes from "./routes/chatbot.js";
+import forumRoutes from "./routes/forum.js";
+import mentalCareRoutes from "./routes/mentalCare.js";
+
+dotenv.config(); // Load environment variables
 
 const app = express();
 
@@ -14,8 +21,11 @@ app.use(express.json());
 // Connect to MongoDB
 connectDB();
 
+// Fix __dirname for ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // Serve frontend
-const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 app.get("*", (req, res) => {
@@ -25,12 +35,10 @@ app.get("*", (req, res) => {
 console.log("Routes loaded: /api/chatbot");
 
 // Routes
-app.use("/api/auth", require("./routes/auth"));
-app.use("/api/chatbot", require("./routes/chatbot"));
-app.use("/api/forum", require("./routes/forum"));
-app.use("/api/mental-care", require("./routes/mentalCare"));
-
-
+app.use("/api/auth", authRoutes);
+app.use("/api/chatbot", chatbotRoutes);
+app.use("/api/forum", forumRoutes);
+app.use("/api/mental-care", mentalCareRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5001;
