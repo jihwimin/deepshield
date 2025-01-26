@@ -1,0 +1,133 @@
+/* Full Page Layout */
+.voice-container {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
+
+/* Chat Header */
+.voice-header {
+  background: #F7C9DC;
+  padding: 15px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Chat Messages */
+.voice-messages {
+  height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+/* AI and User Messages */
+.voice-message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family: 'Inria Serif', serif;
+}
+
+.voice-message.bot {
+  justify-content: flex-start;
+}
+
+.voice-message.user {
+  justify-content: flex-end;
+}
+
+/* AI Avatar */
+.voice-avatar {
+  width: 40px;
+  height: 40px;
+  background: #6D1B46;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Message Text */
+.voice-text {
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 16px;
+  max-width: 60%;
+}
+
+.voice-message.bot .voice-text {
+  background: #FF008D;
+  color: white;
+}
+
+.voice-message.user .voice-text {
+  background: #E0E0E0;
+  color: black;
+}
+
+/* Mic Button Section */
+.mic-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+/* Microphone Button - Styled Like Chat Input */
+.mic-btn {
+  width: 130px; /* Adjusted size */
+  height: 130px;
+  background: #F7C9DC;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Listening Effect */
+.mic-btn.listening {
+  box-shadow: 0 0 30px rgba(255, 20, 147, 0.8);
+  animation: pulse 1.5s infinite;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Microphone Icon */
+.mic-icon {
+  width: 50px; /* Smaller mic icon */
+  height: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mic-btn {
+      width: 100px;
+      height: 100px;
+  }
+  .mic-icon {
+      width: 40px;
+      height: 40px;
+  }
+}

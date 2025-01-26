@@ -8,7 +8,7 @@ import PostDetail from "./pages/PostDetail";  // Import Single Post Page
 import CreatePost from "./pages/CreatePost";
 import { AuthProvider } from "./context/AuthContext";
 import Chatbot from "./pages/ChatAssistant";
-import TalkingMentalCare from "./pages/TalkingMentalCare";
+import TalkingMentalCare from "./pages/VoiceAssistant";
 import AboutUs from "./pages/AboutUs"; // Ensure the correct path
 import Report from "./pages/Report";
 import UnitedStatesReport from "./pages/UnitedStatesReport";
