@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const connectDB = require("./config/db.cjs");
+const connectDB = require("./config/db.js");
 const dotenv = require("dotenv");
 const path = require("path");
 require("dotenv").config();
@@ -24,10 +24,10 @@ app.get("*", (req, res) => {
 console.log("Routes loaded: /api/chatbot");
 
 // Routes
-app.use("/api/auth", require("./routes/auth"));
-app.use("/api/chatbot", require("./routes/chatbot"));
-app.use("/api/forum", require("./routes/forum"));
-app.use("/api/mental-care", require("./routes/mentalCare"));
+app.use("/api/auth", require("./routes/auth.js"));
+app.use("/api/chatbot", require("./routes/chatbot.js"));
+app.use("/api/forum", require("./routes/forum.js"));
+app.use("/api/mental-care", require("./routes/mentalCare.js"));
 
 
 
