@@ -17,6 +17,7 @@ import ChinaReport from "./pages/ChinaReport";
 import SingaporeReport from "./pages/SingaporeReport";
 import SouthKoreaReport from "./pages/SouthKoreaReport";
 import Assistant from "./pages/Assistant";
+import Guide from "./pages/GatheringGuide";
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/report/singapore" element = {<SingaporeReport />} />
           <Route path="/report/south-korea" element = {<SouthKoreaReport />} />
           <Route path="/assistant" element={<Assistant />} />
+          <Route path="/gathering-guide" element={<Guide />} />
         </Routes>
       </Router>
     </AuthProvider>

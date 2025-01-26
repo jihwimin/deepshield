@@ -94,8 +94,12 @@ const AboutUs = () => {
           <div className="profile-card">
             <img src={FounderOne} alt="Jihwi Min" className="profile-img"/>
             <div className="profile-text">
-              <h2>Jihwi Min</h2>
-              <h3>Computer Science, Data Science, AI<br/>Sophomore</h3>
+              <h2>
+                <a href="https://jihwimin.netlify.app/" target="_blank" rel="noopener noreferrer" className="profile-link">
+                Jihwi Min
+                </a>
+              </h2>
+              <h3>Computer Science, Data Science, AI<br/>Sophomore<br/>Click on name for personal website!</h3>
               <p>
                 One ordinary day, I received a DM on Instagram from an anonymous
                 man. He claimed to have seen my photos on an illegal website and

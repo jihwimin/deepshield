@@ -8,6 +8,19 @@
   color: white;
 }
 
+/* Style for Profile Links */
+.profile-link {
+  text-decoration: none; /* Remove underline */
+  color: #FF008D; /* Keep consistent with other text */
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Change color on hover */
+.profile-link:hover {
+  color: black; /* Pink hover effect */
+}
+
 /* Profile Container */
 .profile-container {
   display: flex;

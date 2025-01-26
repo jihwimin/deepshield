@@ -1,0 +1,76 @@
+/* Center and style the Evidence Gathering Guide title */
+.gathering-guide-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+    height: 50vh; /* Adjust height for spacing */
+    text-align: center;
+}
+
+.gathering-guide-title {
+    font-size: 36px;
+    font-weight: normal;
+    color: white;
+    font-family: 'Inria Serif', serif;
+}
+/* Evidence Section Styling */
+.evidence-container {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.evidence-description {
+    font-size: 30px;
+    font-family: 'Inria Serif', serif;
+    color: white;
+    margin-bottom: 50px;
+}
+
+/* Grid for Evidence Boxes */
+.evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Spacing between boxes */
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin: auto;
+    margin-left: 190px;
+}
+
+/* Styling for Each Evidence Box */
+.evidence-box {
+    background: white; /* White background */
+    border: 2px solid #FF008D; /* Pink border */
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    color: black; /* Black text */
+    font-family: 'Inria Serif', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;  /* Set fixed width */
+    height: 200px; /* Set fixed height */
+}
+
+/* Icons inside Evidence Boxes */
+.evidence-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+/* Title in Evidence Boxes */
+.evidence-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Description in Evidence Boxes */
+.evidence-box p {
+    font-size: 14px;
+    color: #333; /* Darker text for readability */
+}
