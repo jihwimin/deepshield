@@ -27,16 +27,22 @@ const Community = () => {
 
 
  useEffect(() => {
-    axios.get(`${API_BASE_URL}/api/forum/posts`)
-      .then((res) => setPosts(res.data))
-      .catch((err) => console.error("Error fetching posts:", err));
-  }, []);
+  axios.get(`${API_BASE_URL}/api/forum/posts`)
+    .then((res) => {
+      console.log("API Response:", res.data); // ✅ Debugging: Ensure response is correct
+      setPosts(Array.isArray(res.data) ? res.data : []); // ✅ Ensure it's an array
+    })
+    .catch((err) => {
+      console.error("Error fetching posts:", err);
+      setPosts([]); // ✅ Prevents errors
+    });
+}, []);
 
-  // Ensure category names are formatted properly for comparison
-  const filteredPosts = posts.filter((post) => {
-    if (filter === "All") return true;
-    return post.category?.toLowerCase() === filter.toLowerCase(); // ✅ Ensures case-insensitive match
-  });
+// ✅ Ensure filtering only runs when posts is an array
+const filteredPosts = Array.isArray(posts) ? posts.filter((post) => {
+  if (filter === "All") return true;
+  return post.category ? post.category.toLowerCase() === filter.toLowerCase() : false;
+}) : [];
 
   return (
     <div className={`main-container ${isScrolled ? "scrolled" : ""}`}>
@@ -82,14 +88,14 @@ const Community = () => {
       <h1 className="community-title">Join the Community</h1>
 
       {/* Filter Buttons */}
-        <div className="filter-buttons">
-        <button className={filter === "All" ? "active" : ""} onClick={() => setFilter("All")}>
-            All Posts
-        </button>
-        <Link to="/create-post">
-            <button>Upload My Experience</button>
-        </Link>
-        </div>
+    <div className="filter-buttons">
+    <button className={filter === "All" ? "active" : ""} onClick={() => setFilter("All")}>
+        All Posts
+    </button>
+    <Link to="/create-post">
+        <button>Upload My Experience</button>
+    </Link>
+    </div>
 
 
 
