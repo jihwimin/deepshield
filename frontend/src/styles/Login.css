@@ -13,6 +13,7 @@
     border: 2px solid #FF008D;
     border-radius: 15px;
     padding: 40px;
+    margin-top: 60px;
     max-width: 500px;
     width: 90%;
     text-align: center;
@@ -121,4 +122,13 @@
   color: inherit;
 }
 
-  
+/* Additional styling for Register page */
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #E0E0E0;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  position: relative;
+}

@@ -1,38 +1,135 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import API_BASE_URL from "../config";
+import "../styles/Login.css";
+import logo from "../assets/deepshield-logo.png";
+import Footer from "../components/Footer";
 
 const Register = () => {
-  const [formData, setFormData] = useState({ username: "", password: "", nickname: "" });
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    nickname: "",
+  });
   const navigate = useNavigate();
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${API_BASE_URL}/api/auth/register`, formData);
-      alert("Registration successful! Please login.");
-      navigate("/login");
+      await axios.post(`${API_BASE_URL}/api/auth/register`, formData);
+      alert("Registration successful!");
+      navigate("/login"); // Redirect to login page after registration
     } catch (err) {
-      if (err.response) {
-        alert(err.response.data.error || "An error occurred. Please try again.");
-      } else {
-        alert("Server is not responding. Check your backend.");
-      }
+      alert(err.response?.data?.error || "Registration failed. Please try again.");
     }
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="username" placeholder="Username" onChange={handleChange} required />
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-        <input type="text" name="nickname" placeholder="Nickname" onChange={handleChange} required />
-        <button type="submit">Register</button>
-      </form>
+    <div className="main-container">
+      {/* Header */}
+      <header className="header">
+        <img src={logo} alt="DeepShield Logo" className="header-logo" />
+        <h1 className="header-title" style={{ fontWeight: "normal", marginRight: "-50px" }}>
+          <Link to="/dashboard" className="logo-link">
+            <span className="deep">D</span><span className="black">eep</span>
+            <span className="shield">S</span><span className="black">hield</span>
+          </Link>
+        </h1>
+        <div className="auth-links-container" style={{ marginRight: "50px" }}>
+          <div className="auth-links">
+            <Link to="/login">login</Link>
+            <span> / </span>
+            <Link to="/signup">sign up</Link>
+          </div>
+        </div>
+      </header>
+
+      {/* Navigation Bar */}
+      <nav className="nav-bar">
+        <h1 className="nav-title">
+          <Link to="/dashboard" className="logo-link">
+            <span className="deep">D</span><span className="black">eep</span>
+            <span className="shield">S</span><span className="black">hield</span>
+          </Link>
+        </h1>
+        <div className="auth-links-container" style={{ marginRight: "100px" }}>
+          <div className="nav-links">
+            <Link to="/report">Report a Deepfake</Link>
+            <Link to="/support">Get Mental Support</Link>
+            <Link to="/community">Join the Community</Link>
+            <Link to="/about-us">About Us</Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* Sign-up Section */}
+      <div className="login-container">
+        <div className="login-box">
+          {/* Logo */}
+          <div className="login-logo">
+            <img src={logo} alt="DeepShield Logo" />
+            <h1>
+              <Link to="/dashboard" className="logo-link">
+                <span className="deep">D</span><span className="black">eep</span>
+                <span className="shield">S</span><span className="black">hield</span>
+              </Link>
+            </h1>
+          </div>
+
+          {/* Sign-up Form */}
+          <form className="login-form" onSubmit={handleSubmit}>
+            {/* Username Field */}
+            <div className="input-group">
+              <input
+                type="text"
+                name="username"
+                placeholder="username"
+                onChange={handleChange}
+                required
+              />
+              <span className="clear-btn">&times;</span>
+            </div>
+
+            {/* Password Field */}
+            <div className="input-group">
+              <input
+                type="password"
+                name="password"
+                placeholder="password"
+                onChange={handleChange}
+                required
+              />
+              <span className="clear-btn">&times;</span>
+            </div>
+
+            {/* Nickname Field */}
+            <div className="input-group">
+              <input
+                type="text"
+                name="nickname"
+                placeholder="nickname"
+                onChange={handleChange}
+                required
+              />
+              <span className="clear-btn">&times;</span>
+            </div>
+
+            {/* Login Link */}
+            <Link to="/login" className="signup-link">Already have an account? Log in</Link>
+
+            {/* Sign-up Button */}
+            <button type="submit" className="login-btn">Sign Up</button>
+          </form>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
