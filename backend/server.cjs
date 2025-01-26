@@ -15,7 +15,6 @@ app.use(express.json());
 connectDB();
 
 // Serve frontend
-const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 app.get("*", (req, res) => {
