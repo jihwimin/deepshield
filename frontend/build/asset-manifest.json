@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.efe515cb.css",
+    "main.js": "/static/js/main.ba8e4685.js",
+    "static/js/488.c45bb793.chunk.js": "/static/js/488.c45bb793.chunk.js",
+    "static/media/founderone.png": "/static/media/founderone.ebaa6586625db7ecf1d9.png",
+    "static/media/foundertwo.png": "/static/media/foundertwo.c0781614d83547b847ab.png",
+    "static/media/deepshield-logo.png": "/static/media/deepshield-logo.bf9e546e3d5f6f9fe6f4.png",
+    "index.html": "/index.html",
+    "main.efe515cb.css.map": "/static/css/main.efe515cb.css.map",
+    "main.ba8e4685.js.map": "/static/js/main.ba8e4685.js.map",
+    "488.c45bb793.chunk.js.map": "/static/js/488.c45bb793.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.efe515cb.css",
+    "static/js/main.ba8e4685.js"
+  ]
+}
