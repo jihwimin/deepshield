@@ -1,0 +1,73 @@
+/* Full Page Layout */
+.main-container {
+    text-align: center;
+    background: black;
+    color: white;
+    padding-bottom: 150px;
+    min-height: 100vh; /* Ensures full viewport height */
+    margin-top: 230px;
+}
+
+
+/* Create Post Box */
+.post-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+    border: 2px solid #FF008D;
+    border-radius: 15px;
+    text-align: left;
+    margin-top: 100px;
+    margin-bottom: 150px; /* Increased space below */
+}
+/* Title */
+.post-title {
+    font-size: 28px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input Fields */
+.post-form input,
+.post-form textarea {
+    width: 96.5%;
+    padding: 12px;
+    border: 2px solid #FF008D;
+    border-radius: 10px;
+    font-size: 16px;
+    background: white;
+    color: black;
+    font-family: 'Inria Serif', serif;
+}
+
+/* Textarea */
+.post-form textarea {
+    height: 150px;
+    resize: none;
+}
+
+/* Button */
+.post-form button {
+    width: 100%;
+    padding: 12px;
+    background: #FF008D;
+    color: white;
+    font-size: 18px;
+    font-family: 'Inria Serif', serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.post-form button:hover {
+    background: #D90075;
+}
