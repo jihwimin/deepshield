@@ -11,6 +11,11 @@ import Chatbot from "./pages/ChatAssistant";
 import TalkingMentalCare from "./pages/TalkingMentalCare";
 import AboutUs from "./pages/AboutUs"; // Ensure the correct path
 import Report from "./pages/Report";
+import UnitedStatesReport from "./pages/UnitedStatesReport";
+import IndiaReport from "./pages/IndiaReport";
+import ChinaReport from "./pages/ChinaReport";
+import SingaporeReport from "./pages/SingaporeReport";
+import SouthKoreaReport from "./pages/SouthKoreaReport";
 
 const App = () => {
   return (
@@ -19,7 +24,6 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Register />} />
-          {/* Make Home Page the Dashboard */}
           <Route path="/" element={<ProtectedRoute component={Dashboard} />} />
           <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />} />
           <Route path="/community" element={<Forum />} /> 
@@ -29,6 +33,11 @@ const App = () => {
           <Route path="/voice-assistant" element={<TalkingMentalCare />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/report" element = {<Report />} />
+          <Route path="/report/united-states" element = {<UnitedStatesReport />} />
+          <Route path="/report/india" element = {<IndiaReport />} />
+          <Route path="/report/china" element = {<ChinaReport />} />
+          <Route path="/report/singapore" element = {<SingaporeReport />} />
+          <Route path="/report/south-korea" element = {<SouthKoreaReport />} />
         </Routes>
       </Router>
     </AuthProvider>
