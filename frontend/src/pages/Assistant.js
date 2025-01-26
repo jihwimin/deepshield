@@ -1,18 +1,35 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Assistant.css"; // Ensure this CSS file is imported
 import logo from "../assets/deepshield-logo.png";
 import Footer from "../components/Footer";
 
 const Assistant = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+ useEffect(() => {
+   const handleScroll = () => {
+     if (window.scrollY > 80) {
+       setIsScrolled(true);
+     } else {
+       setIsScrolled(false);
+     }
+   };
+
+
+   window.addEventListener("scroll", handleScroll);
+   return () => window.removeEventListener("scroll", handleScroll);
+ }, []);
+
   return (
-    <div className="main-container">
-      {/* Header */}
-     <header className="header">
+    <div className={`main-container ${isScrolled ? "scrolled" : ""}`}>
+     {/* Header */}
+     {/* Header (Disappears on Scroll) */}
+     <header className={`header ${isScrolled ? "hidden" : ""}`}>
        <img src={logo} alt="DeepShield Logo" className="header-logo" />
        <h1 className="header-title" style={{ fontWeight: "normal", marginRight: "-50px"}}>
          <Link to="/dashboard" className="logo-link">
-         <span className="deep">D</span><span className="black">eep</span>
-         <span className="shield">S</span><span className="black">hield</span>
+           <span className="deep">D</span><span className="black">eep</span>
+           <span className="shield">S</span><span className="black">hield</span>
          </Link>
        </h1>
        <div className="auth-links-container" style={{ marginRight: "50px" }}>
@@ -25,10 +42,7 @@ const Assistant = () => {
      </header>
 
 
-    
-
-
-     {/* Navigation Bar */}
+     {/* Navigation Bar (Fixed) */}
      <nav className="nav-bar">
        <h1 className="nav-title">
          <Link to="/dashboard" className="logo-link">

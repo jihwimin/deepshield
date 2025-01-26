@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import API_BASE_URL from "../config";
@@ -43,79 +43,93 @@ const ChatAssistant = () => {
     }
   };
 
+  const [isScrolled, setIsScrolled] = useState(false);
+ useEffect(() => {
+   const handleScroll = () => {
+     if (window.scrollY > 80) {
+       setIsScrolled(true);
+     } else {
+       setIsScrolled(false);
+     }
+   };
+
+
+   window.addEventListener("scroll", handleScroll);
+   return () => window.removeEventListener("scroll", handleScroll);
+ }, []);
+
+
   return (
-    <div className="main-container">
-      {/* Header */}
-     <header className="header">
-       <img src={logo} alt="DeepShield Logo" className="header-logo" />
-       <h1 className="header-title" style={{ fontWeight: "normal", marginRight: "-50px"}}>
-         <Link to="/dashboard" className="logo-link">
-         <span className="deep">D</span><span className="black">eep</span>
-         <span className="shield">S</span><span className="black">hield</span>
-         </Link>
-       </h1>
-       <div className="auth-links-container" style={{ marginRight: "50px" }}>
-         <div className="auth-links">
-           <Link to="/login">login</Link>
-           <span> / </span>
-           <Link to="/signup">sign up</Link>
-         </div>
-       </div>
-     </header>
+      <div className={`main-container ${isScrolled ? "scrolled" : ""}`}>
+        {/* Header */}
+        {/* Header (Disappears on Scroll) */}
+        <header className={`header ${isScrolled ? "hidden" : ""}`}>
+          <img src={logo} alt="DeepShield Logo" className="header-logo"/>
+          <h1 className="header-title" style={{fontWeight: "normal", marginRight: "-50px"}}>
+            <Link to="/dashboard" className="logo-link">
+              <span className="deep">D</span><span className="black">eep</span>
+              <span className="shield">S</span><span className="black">hield</span>
+            </Link>
+          </h1>
+          <div className="auth-links-container" style={{marginRight: "50px"}}>
+            <div className="auth-links">
+              <Link to="/login">login</Link>
+              <span> / </span>
+              <Link to="/signup">sign up</Link>
+            </div>
+          </div>
+        </header>
 
 
-    
+        {/* Navigation Bar (Fixed) */}
+        <nav className="nav-bar">
+          <h1 className="nav-title">
+            <Link to="/dashboard" className="logo-link">
+              <span className="deep">D</span><span className="white">eep</span>
+              <span className="shield">S</span><span className="white">hield</span>
+            </Link>
+          </h1>
+          <div className="auth-links-container" style={{marginRight: "100px"}}>
+            <div className="nav-links">
+              <Link to="/report">Report a Deepfake</Link>
+              <Link to="/assistant">Get Mental Support</Link>
+              <Link to="/community">Join the Community</Link>
+              <Link to="/about-us">About Us</Link>
+            </div>
+          </div>
+        </nav>
 
 
-     {/* Navigation Bar */}
-     <nav className="nav-bar">
-       <h1 className="nav-title">
-         <Link to="/dashboard" className="logo-link">
-           <span className="deep">D</span><span className="white">eep</span>
-           <span className="shield">S</span><span className="white">hield</span>
-         </Link>
-       </h1>
-       <div className="auth-links-container" style={{ marginRight: "100px" }}>
-         <div className="nav-links">
-           <Link to="/report">Report a Deepfake</Link>
-           <Link to="/assistant">Get Mental Support</Link>
-           <Link to="/community">Join the Community</Link>
-           <Link to="/about-us">About Us</Link>
-         </div>
-       </div>
-     </nav>
+        {/* AI Chat Assistant */}
+        <div className="chat-container">
+          {/* Chat Header */}
+          <div className="chat-header">AI Chat Assistant</div>
 
+          {/* Chat Messages */}
+          <div className="chat-messages">
+            {messages.map((msg, index) => (
+                <ChatMessage key={index} text={msg.text} sender={msg.sender}/>
+            ))}
+          </div>
 
-      {/* AI Chat Assistant */}
-      <div className="chat-container">
-        {/* Chat Header */}
-        <div className="chat-header">AI Chat Assistant</div>
-
-        {/* Chat Messages */}
-        <div className="chat-messages">
-          {messages.map((msg, index) => (
-            <ChatMessage key={index} text={msg.text} sender={msg.sender} />
-          ))}
+          {/* Input Area */}
+          <div className="chat-input">
+            <input
+                type="text"
+                value={userInput}
+                onChange={(e) => setUserInput(e.target.value)}
+                onKeyDown={handleKeyPress}
+                placeholder="Enter your response here."
+            />
+            <button onClick={handleSendMessage} className="send-btn">
+              <img src={sendIcon} alt="Send" className="send-icon"/>
+            </button>
+          </div>
         </div>
 
-        {/* Input Area */}
-        <div className="chat-input">
-          <input
-            type="text"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-            onKeyDown={handleKeyPress}
-            placeholder="Enter your response here."
-          />
-          <button onClick={handleSendMessage} className="send-btn">
-            <img src={sendIcon} alt="Send" className="send-icon" />
-          </button>
-        </div>
+        {/* Footer */}
+        <Footer/>
       </div>
-
-      {/* Footer */}
-      <Footer />
-    </div>
   );
 };
 
