@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const dotenv = require("dotenv");
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
@@ -12,6 +13,14 @@ app.use(express.json());
 
 // Connect to MongoDB
 connectDB();
+
+// Serve frontend
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
+});
 
 console.log("Routes loaded: /api/chatbot");
 
