@@ -30,9 +30,9 @@ const Footer = () => {
           </div>
           <div className="footer-column">
             <Link to="/report">Report a Deepfake</Link>
-            <Link to="/support">Get Mental Support</Link>
+            <Link to="/assistant">Get Mental Support</Link>
             <Link to="/community">Join the Community</Link>
-            <Link to="/about">About Us</Link>
+            <Link to="/about-us">About Us</Link>
           </div>
         </div>
       </div>
