@@ -1,2 +1,4 @@
 node_modules
 /backend/.env
+backend/deepshield-*.json
+backend/.env
