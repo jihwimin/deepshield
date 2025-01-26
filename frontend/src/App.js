@@ -16,6 +16,7 @@ import IndiaReport from "./pages/IndiaReport";
 import ChinaReport from "./pages/ChinaReport";
 import SingaporeReport from "./pages/SingaporeReport";
 import SouthKoreaReport from "./pages/SouthKoreaReport";
+import Assistant from "./pages/Assistant";
 
 const App = () => {
   return (
@@ -29,8 +30,8 @@ const App = () => {
           <Route path="/community" element={<Forum />} /> 
           <Route path="/create-post" element={<CreatePost />} /> 
           <Route path="/posts/:id" element={<PostDetail />} /> 
-          <Route path="/chat-assistant" element={<Chatbot />} />
-          <Route path="/voice-assistant" element={<TalkingMentalCare />} />
+          <Route path="/assistant/chat-assistant" element={<Chatbot />} />
+          <Route path="/assistant/voice-assistant" element={<TalkingMentalCare />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/report" element = {<Report />} />
           <Route path="/report/united-states" element = {<UnitedStatesReport />} />
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/report/china" element = {<ChinaReport />} />
           <Route path="/report/singapore" element = {<SingaporeReport />} />
           <Route path="/report/south-korea" element = {<SouthKoreaReport />} />
+          <Route path="/assistant" element={<Assistant />} />
         </Routes>
       </Router>
     </AuthProvider>
