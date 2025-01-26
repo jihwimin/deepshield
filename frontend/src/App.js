@@ -18,16 +18,16 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/signup" element={<Register />} />
           {/* Make Home Page the Dashboard */}
           <Route path="/" element={<ProtectedRoute component={Dashboard} />} />
           <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />} />
-          <Route path="/forum" element={<Forum />} /> 
+          <Route path="/community" element={<Forum />} /> 
           <Route path="/create-post" element={<CreatePost />} /> 
           <Route path="/posts/:id" element={<PostDetail />} /> 
-          <Route path="/chatbot" element={<Chatbot />} />
-          <Route path="/talking-mental-care" element={<TalkingMentalCare />} />
-          <Route path="/about" element={<AboutUs />} />
+          <Route path="/chat-assistant" element={<Chatbot />} />
+          <Route path="/voice-assistant" element={<TalkingMentalCare />} />
+          <Route path="/about-us" element={<AboutUs />} />
         </Routes>
       </Router>
     </AuthProvider>
