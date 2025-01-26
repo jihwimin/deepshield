@@ -12,42 +12,47 @@ const AboutUs = () => {
     <div className="about-container">
 
       {/* Header */}
-      <header className="header">
-        <img src={logo} alt="DeepShield Logo" className="header-logo" />
-        <h1 className="header-title" style={{ fontWeight: "normal", marginRight: "-50px"}}>
-          <Link to="/dashboard" className="logo-link">
-          <span className="deep">D</span><span className="black">eep</span>
-          <span className="shield">S</span><span className="black">hield</span>
-          </Link>
-        </h1>
-        <div className="auth-links-container" style={{ marginRight: "50px" }}>
-          <div className="auth-links">
-            <Link to="/login">login</Link>
-            <span> / </span>
-            <Link to="/signup">sign up</Link>
-          </div>
-        </div>
-      </header>
+     <header className="header">
+       <img src={logo} alt="DeepShield Logo" className="header-logo" />
+       <h1 className="header-title" style={{ fontWeight: "normal", marginRight: "-50px"}}>
+         <Link to="/dashboard" className="logo-link">
+         <span className="deep">D</span><span className="black">eep</span>
+         <span className="shield">S</span><span className="black">hield</span>
+         </Link>
+       </h1>
+       <div className="auth-links-container" style={{ marginRight: "50px" }}>
+         <div className="auth-links">
+           <Link to="/login">login</Link>
+           <span> / </span>
+           <Link to="/signup">sign up</Link>
+         </div>
+       </div>
+     </header>
 
 
+    
 
-      {/* Navigation Bar */}
-      <nav className="nav-bar">
-        <h1 className="nav-title">
+
+     {/* Navigation Bar */}
+     <nav className="nav-bar">
+       <h1 className="nav-title">
+        <div className="auth-links-container" style={{ marginRight: "-623.5px" }}>
           <Link to="/dashboard" className="logo-link">
             <span className="deep">D</span><span className="white">eep</span>
             <span className="shield">S</span><span className="white">hield</span>
           </Link>
-        </h1>
-        <div className="auth-links-container" style={{ marginRight: "100px" }}>
-          <div className="nav-links">
-            <Link to="/report">Report a Deepfake</Link>
-            <Link to="/assistant">Get Mental Support</Link>
-            <Link to="/community">Join the Community</Link>
-            <Link to="/about-us">About Us</Link>
-          </div>
         </div>
-      </nav>
+       </h1>
+       <div className="auth-links-container" style={{ marginRight: "-150px" }}>
+         <div className="nav-links">
+           <Link to="/report">Report a Deepfake</Link>
+           <Link to="/assistant">Get Mental Support</Link>
+           <Link to="/community">Join the Community</Link>
+           <Link to="/about-us">About Us</Link>
+         </div>
+       </div>
+     </nav>
+
       <h1 className="about-title">About Us</h1>
 
       <div className="profile-container">
