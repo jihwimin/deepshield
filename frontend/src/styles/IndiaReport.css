@@ -1,0 +1,58 @@
+/* Report Content */
+.report-content {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    margin-top: 150px;
+    padding: 50px 20px;
+  }
+
+  /* Report Title */
+  .report-title {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  /* Report Box */
+  .report-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.3);
+    text-align: left;
+    max-width: 750px;
+    margin: auto;
+    font-size: 16px;
+    color: black;
+    line-height: 1.6;
+  }
+
+  /* Hyperlinks */
+  .report-box a {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .report-box a:hover {
+    text-decoration: underline;
+  }
+
+  /* List Styling */
+  .report-box ul {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+  }
+
+  .report-box li {
+    font-size: 16px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .report-box {
+      padding: 15px;
+    }
+  }
