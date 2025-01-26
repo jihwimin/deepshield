@@ -41,7 +41,7 @@ const Login = () => {
           <div className="auth-links">
             <Link to="/login">login</Link>
             <span> / </span>
-            <Link to="/signup">sign in</Link>
+            <Link to="/signup">sign up</Link>
           </div>
         </div>
       </header>
