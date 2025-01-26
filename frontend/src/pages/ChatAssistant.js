@@ -5,6 +5,7 @@ import API_BASE_URL from "../config";
 import ChatMessage from "../components/ChatMessage";
 import "../styles/ChatAssistant.css"; // Ensure this CSS file is imported
 import logo from "../assets/deepshield-logo.png";
+import sendIcon from "../icons/send-icon.png";
 import Footer from "../components/Footer";
 
 const ChatAssistant = () => {
@@ -106,7 +107,9 @@ const ChatAssistant = () => {
             onKeyDown={handleKeyPress}
             placeholder="Enter your response here."
           />
-          <button onClick={handleSendMessage} className="send-btn">➤</button>
+          <button onClick={handleSendMessage} className="send-btn">
+            <img src={sendIcon} alt="Send" className="send-icon" />
+          </button>
         </div>
       </div>
 
