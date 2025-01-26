@@ -1,0 +1,300 @@
+/* General Styles */
+/* Set Entire Page Background to Black */
+body {
+  font-family: 'Inria Serif', serif;
+  margin: 0;
+  padding: 0;
+  background-color: black; /* Ensures entire page is black */
+  color: white;
+}
+
+/* Header Styles */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000; /* Ensures it's above the nav-bar initially */
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+}
+
+
+.header-logo {
+  width: 50px; /* Adjusted for correct size */
+  height: auto;
+}
+
+.header-title {
+  font-family: 'Inria Serif', serif;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title span {
+  color: black;
+}
+
+.header-title .deep {
+  color: #BF016B;
+}
+
+.header-title .shield {
+  color: #FF59B5;
+}
+
+.auth-links {
+  font-size: 16px;
+  color: black;
+  text-transform: lowercase;
+}
+
+.auth-links a {
+  color: black;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+
+/* Top Bar */
+.top-bar {
+  background-color: #FFFFFF;
+  color: black;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s;
+}
+
+.top-bar.hidden {
+  transform: translateY(-100%);
+}
+
+.nav-bar {
+  position: fixed;
+  top: 80px; /* Adjust this based on the height of the header */
+  width: 100%;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: top 0.3s ease-in-out; /* Smooth transition when moving */
+  z-index: 999;
+}
+.scrolled .nav-bar {
+  top: 0;
+  background: rgba(0, 0, 0, 0.5); /* Transparent black when scrolling */
+
+}
+
+.nav-title {
+  font-size: 24px;
+  font-weight: normal;
+  color: white;
+}
+
+.nav-title .deep {
+  color: #BF016B; /* Pink color for "D" */
+}
+
+.nav-title .shield {
+  color: #FF59B5; /* Pink color for "S" */
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #d63384;
+}
+
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 100px 20px; /* Increased padding for better spacing */
+  background: transparent; /* Ensuring the background remains consistent */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Ensuring full height display */
+}
+
+/* Main Heading */
+.hero h1 {
+  font-size: 48px; /* Increased size for emphasis */
+  font-weight: normal;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.3; /* Better spacing between lines */
+  letter-spacing: -3px;
+}
+
+/* Subtext */
+.hero p {
+  font-size: 20px;
+  max-width: 700px; /* Limits text width for better readability */
+  margin: 0 auto;
+  color: #CCCCCC; /* Light gray color for readability */
+  line-height: 1.6; /* Improved line spacing */
+}
+
+/* Info Section - Container */
+.info-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+  background: black; /* Ensure the background is pure black */
+}
+
+/* Card - White Box */
+.info-card {
+  background: white;
+  color: black;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 800px;
+  text-align: left;
+  position: relative; /* Ensures the shadow appears correctly */
+  box-shadow: 0 0 200px #FF008D; /* Pink glow with 200px blur */
+}
+
+/* Title - What is Deepfake? */
+.info-card h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Underline Effect */
+.underline {
+  width: 80px;
+  height: 5px;
+  background: #FF008D; /* Pink underline */
+  margin-bottom: 20px;
+}
+
+/* Description Text */
+.info-card p {
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Glowing Card with Black Background */
+.black-bg {
+  background: black; /* Black background for the card */
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 800px;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 0 200px #FF008D; /* Pink glow (#FF008D) with 200px blur */
+}
+
+/* Title Styling */
+.black-bg h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Description Text */
+.black-bg p {
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Action Section */
+.action-section {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+}
+
+/* Title Styling */
+.action-section h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #BF016B; /* Pink color */
+  margin-bottom: 80px;
+  
+}
+
+/* Specific Colors for "DeepShield" */
+.action-section .deep {
+  color: #BF016B;
+}
+
+.action-section .shield {
+  color: #FF59B5;
+}
+
+/* Description Text */
+.action-section p {
+  font-size: 20px;
+  font-weight: bold;
+  max-width: 800px;
+  margin: 0 auto;
+  color: black;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+
+/* Footer */
+.footer {
+  background: #400728;
+  padding: 40px;
+  text-align: center;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 500;
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #FFBDE1;
+}
