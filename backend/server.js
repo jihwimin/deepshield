@@ -4,6 +4,15 @@ const connectDB = require("./config/db.js");
 const dotenv = require("dotenv");
 const path = require("path");
 require("dotenv").config();
+// Serve frontend static files in production
+const frontendPath = path.join(__dirname, "../frontend/build");
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(frontendPath));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(frontendPath, "index.html"));
+  });
+}
 
 const app = express();
 
