@@ -58,9 +58,9 @@ const Dashboard = () => {
         <div className="auth-links-container" style={{ marginRight: "100px" }}>
           <div className="nav-links">
             <Link to="/report">Report a Deepfake</Link>
-            <Link to="/support">Get Mental Support</Link>
-            <Link to="/forum">Join the Community</Link>
-            <Link to="/about">About Us</Link>
+            <Link to="/assistant">Get Mental Support</Link>
+            <Link to="/community">Join the Community</Link>
+            <Link to="/about-us">About Us</Link>
           </div>
         </div>
       </nav>
@@ -129,7 +129,7 @@ const Dashboard = () => {
         <div className="card">
           <img src={heartIcon} alt="Get Mental Support" className="card-icon" />
           <div className="card-content">
-            <Link to="/support" className="card-title">Get Mental Support</Link>
+            <Link to="/assistant" className="card-title">Get Mental Support</Link>
             <p>Our AI chatbot provides emotional support and guides you to helpful resources.</p>
           </div>
         </div>
@@ -138,7 +138,7 @@ const Dashboard = () => {
         <div className="card">
           <img src={communityIcon} alt="Join the Community" className="card-icon" />
           <div className="card-content">
-            <Link to="/forum" className="card-title">Join the Community</Link>
+            <Link to="/community" className="card-title">Join the Community</Link>
             <p>Talk to others who understand and find support in a safe space.</p>
           </div>
         </div>
