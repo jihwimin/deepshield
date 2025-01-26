@@ -59,9 +59,9 @@ const Login = () => {
         <div className="auth-links-container" style={{ marginRight: "100px" }}>
           <div className="nav-links">
             <Link to="/report">Report a Deepfake</Link>
-            <Link to="/support">Get Mental Support</Link>
-            <Link to="/forum">Join the Community</Link>
-            <Link to="/about">About Us</Link>
+            <Link to="/assistant">Get Mental Support</Link>
+            <Link to="/community">Join the Community</Link>
+            <Link to="/about-us">About Us</Link>
           </div>
         </div>
       </nav>

@@ -23,7 +23,7 @@ const AboutSection = () => {
           </p>
 
           {/* About Us Button */}
-          <Link to="/about" className="about-btn">About Us</Link>
+          <Link to="/about-us" className="about-btn">About Us</Link>
         </div>
       </div>
     </section>
