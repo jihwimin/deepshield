@@ -10,6 +10,8 @@ import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import Chatbot from "./pages/Chatbot";
 import TalkingMentalCare from "./pages/TalkingMentalCare";
+import AboutUs from "./pages/AboutUs"; // Ensure the correct path
+
 
 const App = () => {
   return (
@@ -27,6 +29,7 @@ const App = () => {
           <Route path="/posts/:id" element={<PostDetail />} /> 
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/talking-mental-care" element={<TalkingMentalCare />} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
       </Router>
     </AuthProvider>
@@ -37,5 +40,7 @@ const ProtectedRoute = ({ component: Component }) => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   return storedUser ? <Component /> : <Navigate to="/login" />;
 };
+
+
 
 export default App;
