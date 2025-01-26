@@ -7,7 +7,6 @@ import Forum from "./pages/Forum";  // Import Forum
 import PostDetail from "./pages/PostDetail";  // Import Single Post Page
 import CreatePost from "./pages/CreatePost";
 import { AuthProvider } from "./context/AuthContext";
-import Navbar from "./components/Navbar";
 import Chatbot from "./pages/Chatbot";
 import TalkingMentalCare from "./pages/TalkingMentalCare";
 import AboutUs from "./pages/AboutUs"; // Ensure the correct path
@@ -17,7 +16,6 @@ const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <Navbar />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

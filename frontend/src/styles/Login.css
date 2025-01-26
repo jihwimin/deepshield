@@ -1,0 +1,124 @@
+/* Full Page Centering */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+    background: black;
+  }
+  
+  /* White Box with Pink Border */
+  .login-box {
+    background: white;
+    border: 2px solid #FF008D;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+  }
+  
+  /* Logo Section */
+  .login-logo img {
+    width: 60px; /* Adjust size if needed */
+    margin-bottom: 10px;
+  }
+  
+  .login-logo h1 {
+    font-size: 28px;
+    font-weight: normal;
+    color: black;
+    margin-bottom: 20px;
+  }
+  
+  .login-logo .deep {
+    color: #BF016B;
+  }
+  
+  .login-logo .shield {
+    color: #FF59B5;
+  }
+  
+  /* Input Groups */
+  .input-group {
+    display: flex;
+    align-items: center;
+    background: #E0E0E0;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  /* Input Fields */
+  .input-group input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    font-family: 'Inria Serif', serif;
+    width: 100%;
+    font-family: 'Inria Serif', serif;
+    color: #7D7D7D;
+  }
+  
+  /* Placeholder Styling */
+  .input-group input::placeholder {
+    color: #A0A0A0;
+  }
+  
+  /* Clear (X) Button */
+  .clear-btn {
+    font-size: 18px;
+    cursor: pointer;
+    color: black;
+    margin-left: 10px;
+  }
+  
+  /* Signup Link */
+  .signup-link {
+    display: block;
+    color: #BF016B;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .signup-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Login Button */
+  .login-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #FF008D;
+    color: white;
+    font-size: 18px;
+    font-family: 'Inria Serif', serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .login-btn:hover {
+    background: #D90075;
+  }
+  /* Remove underline and keep text color */
+.logo-link {
+  text-decoration: none;
+  color: inherit; /* Keeps the original text color */
+  font-weight: inherit;
+}
+
+/* Ensure no color change on hover */
+.logo-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+  

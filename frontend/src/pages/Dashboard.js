@@ -6,8 +6,6 @@ import Footer from "../components/Footer";
 import speakerIcon from "../icons/report-icon.png";
 import heartIcon from "../icons/heart-icon.png";
 import communityIcon from "../icons/community-icon.png";
-import founderOne from "../assets/founderone.png";
-import founderTwo from "../assets/foundertwo.png";
 import "../styles/AboutSection.css";
 import AboutSection from "../components/AboutSection";
 
@@ -35,8 +33,10 @@ const Dashboard = () => {
       <header className={`header ${isScrolled ? "hidden" : ""}`}>
         <img src={logo} alt="DeepShield Logo" className="header-logo" />
         <h1 className="header-title" style={{ fontWeight: "normal", marginRight: "-50px"}}>
-          <span className="deep">D</span><span className="black">eep</span>
-          <span className="shield">S</span><span className="black">hield</span>
+          <Link to="/dashboard" className="logo-link">
+            <span className="deep">D</span><span className="black">eep</span>
+            <span className="shield">S</span><span className="black">hield</span>
+          </Link>
         </h1>
         <div className="auth-links-container" style={{ marginRight: "50px" }}>
           <div className="auth-links">
@@ -50,8 +50,10 @@ const Dashboard = () => {
       {/* Navigation Bar (Fixed) */}
       <nav className="nav-bar">
         <h1 className="nav-title">
-          <span className="deep">D</span><span className="white">eep</span>
-          <span className="shield">S</span><span className="white">hield</span>
+          <Link to="/dashboard" className="logo-link">
+            <span className="deep">D</span><span className="white">eep</span>
+            <span className="shield">S</span><span className="white">hield</span>
+          </Link>
         </h1>
         <div className="auth-links-container" style={{ marginRight: "100px" }}>
           <div className="nav-links">

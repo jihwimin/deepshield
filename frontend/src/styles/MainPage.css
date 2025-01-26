@@ -356,3 +356,17 @@ body {
   font-size: 14px;
   color: #FFBDE1;
 }
+
+/* Remove underline and keep text color */
+.logo-link {
+  text-decoration: none;
+  color: inherit; /* Keeps the original text color */
+  font-weight: inherit;
+}
+
+/* Ensure no color change on hover */
+.logo-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+  
