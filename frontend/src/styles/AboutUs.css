@@ -1,63 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:wght@300;400;700&display=swap');
+
 .about-container {
   background-color: #000000;
   color: #FFFFFF;
   text-align: center;
+  font-family: 'Inria Serif', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*height: 100vh;*/
+  width: 100%;
+  min-height: 100vh;
   padding: 50px 0;
+  box-sizing: border-box;
+  border: none;
 }
 
 .about-title {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 40px;
+  /*margin-bottom: 50px;*/
+  margin-left: 430px;
+  padding: 150px 50px;
 }
 
 .profile-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
 }
 
 .profile-card {
   display: flex;
   align-items: center;
-  background-color: #400728;
-  border: 2px solid #BF016B;
+  justify-content: center;
+  background-color: #000000;
+  border: 2px solid #BF016B; /* Keep this for the card */
   border-radius: 20px;
-  padding: 30px;
-  max-width: 800px;
-  text-align: left;
-  box-shadow: 0 0 10px rgba(255, 0, 141, 0.3);
+  padding: 40px;
+  width: 100%;
+  max-width: 900px;
+  margin-left: 600px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255, 0, 141, 0.3);
+  position: relative;
+  overflow: hidden;
 }
 
 .profile-img {
-  width: 150px;
+  width: 180px;
   height: 200px;
   object-fit: cover;
-  border-radius: 10px;
-  margin-right: 20px;
-  border: 3px solid #FF008D;
+  /*border-radius: 10px;*/
+  margin-left: 70px;
+  text-align: center;
 }
 
 .profile-text {
-  color: #FFBDE1;
   flex: 1;
+  color: #FFFFFF;
+  text-align: left;
+  margin-left: 150px;
 }
 
 .profile-text h2 {
   font-size: 1.8rem;
-  color: #FF59B5;
+  font-weight: 700;
   margin-bottom: 5px;
 }
 
 .profile-text h3 {
   font-size: 1.2rem;
-  color: #FF8FCD;
+  font-weight: 400;
   margin-bottom: 15px;
 }
 
 .profile-text p {
   font-size: 1rem;
+  font-weight: 300;
   line-height: 1.6;
-  color: #FFFFFF;
 }
