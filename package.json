@@ -1,11 +1,12 @@
 {
+    "type": "commonjs",
     "name": "deepshield",
     "version": "1.0.0",
     "description": "A deepfake victim support platform.",
-    "main": "backend/server.js",
+    "main": "backend/server.cjs",
     "scripts": {
-      "start": "node backend/server.js",
-      "dev": "nodemon backend/server.js"
+      "start": "node backend/server.cjs",
+      "dev": "nodemon backend/server.cjs"
     },
     "dependencies": {
       "express": "^4.18.2",
@@ -24,7 +25,6 @@
     "engines": {
       "node": ">=18.0.0"
     },
-    "license": "MIT",
-    "type": "commonjs"
+    "license": "MIT"
   }
   
