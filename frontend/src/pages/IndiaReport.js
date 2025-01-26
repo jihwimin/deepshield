@@ -58,7 +58,7 @@ const IndiaReport = () => {
             </a>
           </p>
           <ul>
-            <li>Select ‘Report Other Cyber Crimes’, and follow the instructions to report a case.</li>
+            <li>Select 'Report Other Cyber Crimes', and follow the instructions to report a case.</li>
           </ul>
 
           <p><strong>Police Office</strong></p>

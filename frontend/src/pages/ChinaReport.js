@@ -58,7 +58,7 @@ const ChinaReport = () => {
             </a>
           </p>
           <ul>
-            <li>Select ‘举报入口’, and follow the instructions to report a case.</li>
+            <li>Select '举报入口', and follow the instructions to report a case.</li>
           </ul>
 
           <p><strong>Cybersecurity Division, Regional Public Security Bureau</strong></p>

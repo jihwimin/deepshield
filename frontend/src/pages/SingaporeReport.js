@@ -58,7 +58,7 @@ const SingaporeReport = () => {
             </a>
           </p>
           <ul>
-            <li>Use ‘iWitness’ portal to submit your evidences related to your case. </li>
+            <li>Use 'iWitness' portal to submit your evidences related to your case. </li>
           </ul>
 
           <p>
