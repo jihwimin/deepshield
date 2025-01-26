@@ -167,7 +167,7 @@ body {
 
 /* Subtext */
 .hero p {
-  font-size: 20px;
+  font-size: 28px;
   max-width: 700px; /* Limits text width for better readability */
   margin: 0 auto;
   color: #CCCCCC; /* Light gray color for readability */
@@ -189,7 +189,7 @@ body {
   color: black;
   padding: 40px;
   border-radius: 15px;
-  max-width: 800px;
+  max-width: 1000px;
   text-align: left;
   position: relative; /* Ensures the shadow appears correctly */
   box-shadow: 0 0 200px #FF008D; /* Pink glow with 200px blur */
@@ -197,7 +197,7 @@ body {
 
 /* Title - What is Deepfake? */
 .info-card h2 {
-  font-size: 32px;
+  font-size: 38px;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -212,7 +212,7 @@ body {
 
 /* Description Text */
 .info-card p {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.6;
   font-weight: 500;
 }
@@ -223,7 +223,7 @@ body {
   color: white;
   padding: 40px;
   border-radius: 15px;
-  max-width: 800px;
+  max-width: 1000px;
   text-align: left;
   position: relative;
   box-shadow: 0 0 200px #FF008D; /* Pink glow (#FF008D) with 200px blur */
@@ -231,14 +231,14 @@ body {
 
 /* Title Styling */
 .black-bg h2 {
-  font-size: 32px;
+  font-size: 38px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 /* Description Text */
 .black-bg p {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.6;
   font-weight: 500;
 }
@@ -252,7 +252,7 @@ body {
 
 /* Title Styling */
 .action-section h2 {
-  font-size: 36px;
+  font-size: 38px;
   font-weight: bold;
   color: #BF016B; /* Pink color */
   margin-bottom: 80px;
@@ -321,7 +321,7 @@ body {
 .card-title {
   background: #FF008D;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   padding: 10px;
   border-radius: 10px;
