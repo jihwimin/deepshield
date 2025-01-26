@@ -10,7 +10,7 @@ import { AuthProvider } from "./context/AuthContext";
 import Chatbot from "./pages/ChatAssistant";
 import TalkingMentalCare from "./pages/TalkingMentalCare";
 import AboutUs from "./pages/AboutUs"; // Ensure the correct path
-
+import Report from "./pages/Report";
 
 const App = () => {
   return (
@@ -28,6 +28,7 @@ const App = () => {
           <Route path="/chat-assistant" element={<Chatbot />} />
           <Route path="/voice-assistant" element={<TalkingMentalCare />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/report" element = {<Report />} />
         </Routes>
       </Router>
     </AuthProvider>
