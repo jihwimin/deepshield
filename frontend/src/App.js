@@ -7,7 +7,7 @@ import Forum from "./pages/Forum";  // Import Forum
 import PostDetail from "./pages/PostDetail";  // Import Single Post Page
 import CreatePost from "./pages/CreatePost";
 import { AuthProvider } from "./context/AuthContext";
-import Chatbot from "./pages/Chatbot";
+import Chatbot from "./pages/ChatAssistant";
 import TalkingMentalCare from "./pages/TalkingMentalCare";
 import AboutUs from "./pages/AboutUs"; // Ensure the correct path
 
