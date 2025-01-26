@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-import Forum from "./pages/Forum";  // Import Forum
+import Community from "./pages/Community";  // Import Forum
 import PostDetail from "./pages/PostDetail";  // Import Single Post Page
 import CreatePost from "./pages/CreatePost";
 import { AuthProvider } from "./context/AuthContext";
@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/signup" element={<Register />} />
           <Route path="/" element={<ProtectedRoute component={Dashboard} />} />
           <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />} />
-          <Route path="/community" element={<Forum />} /> 
+          <Route path="/community" element={<Community />} /> 
           <Route path="/create-post" element={<CreatePost />} /> 
           <Route path="/posts/:id" element={<PostDetail />} /> 
           <Route path="/assistant/chat-assistant" element={<Chatbot />} />

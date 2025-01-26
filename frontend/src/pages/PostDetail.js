@@ -11,6 +11,21 @@ const PostDetail = () => {
   const [commentText, setCommentText] = useState("");
   const [loading, setLoading] = useState(true);
   const user = JSON.parse(localStorage.getItem("user")); // Get logged-in user
+  const [isScrolled, setIsScrolled] = useState(false);
+ useEffect(() => {
+   const handleScroll = () => {
+     if (window.scrollY > 80) {
+       setIsScrolled(true);
+     } else {
+       setIsScrolled(false);
+     }
+   };
+
+
+   window.addEventListener("scroll", handleScroll);
+   return () => window.removeEventListener("scroll", handleScroll);
+ }, []);
+
 
   useEffect(() => {
     const fetchPostAndComments = async () => {

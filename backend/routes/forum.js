@@ -35,6 +35,7 @@ router.get("/posts", async (req, res) => {
   }
 });
 
+
 // Get a single post
 router.get("/posts/:id", async (req, res) => {
   try {

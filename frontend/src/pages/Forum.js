@@ -8,11 +8,16 @@ const Forum = () => {
   const [filter, setFilter] = useState("All"); // Default: Show all categories
 
   useEffect(() => {
-    axios.get(`${API_BASE_URL}/api/forum/posts`).then((res) => setPosts(res.data));
+    axios.get(`${API_BASE_URL}/api/forum/posts`)
+      .then((res) => setPosts(res.data))
+      .catch((err) => console.error("Error fetching posts:", err));
   }, []);
 
-  // ✅ Filter Posts Based on Category Selection
-  const filteredPosts = filter === "All" ? posts : posts.filter(post => post.category === filter);
+  // Ensure category names are formatted properly for comparison
+  const filteredPosts = posts.filter((post) => {
+    if (filter === "All") return true;
+    return post.category?.toLowerCase() === filter.toLowerCase(); // ✅ Ensures case-insensitive match
+  });
 
   return (
     <div>
