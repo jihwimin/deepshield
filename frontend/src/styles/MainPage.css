@@ -279,6 +279,64 @@ body {
   letter-spacing: 0.3px;
 }
 
+/* Action Section Container */
+.action-cards {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+}
+
+/* Cards Wrapper */
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Individual Card */
+.card {
+  border: 2px solid #FF008D; /* Pink border */
+  border-radius: 15px;
+  padding: 20px;
+  width: 230px;
+  text-align: center;
+  background: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Card Hover Effect */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Icon Styling */
+.card-icon {
+  width: 50px; /* Adjust based on your icon size */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Card Title */
+.card-title {
+  background: #FF008D;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+/* Card Text */
+.card p {
+  font-size: 20px;
+  color: black;
+  line-height: 1.6;
+}
+
+
 /* Footer */
 .footer {
   background: #400728;

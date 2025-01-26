@@ -1,64 +1,91 @@
-/* Footer Styles */
+/* Footer Section */
 .footer {
-    background: #400728;
+    background: #81054B; /* Dark purple background */
+    color: white;
     padding: 50px 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Inria Serif', serif;
+  }
+  
+  /* Message at the Top */
+  .footer-message {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .footer-message h2 {
+    font-size: 35px;
+    font-weight: normal;
+  }
+  
+  /* Footer Content Layout */
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    width: 60%;
+    flex-wrap: wrap;
+  }
+  
+  /* Branding Section */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .footer-logo {
-    width: 60px; /* Adjusted size to match the Figma design */
+    width: 100px; /* Adjust as needed */
     height: auto;
     margin-bottom: 10px;
   }
   
-  .footer .footer-brand {
-    display: flex;
-    align-items: center;
-    font-size: 28px;
-    font-weight: bold;
-    color: #FFBDE1;
-    margin-bottom: 15px;
-  }
-  
-  .footer .footer-brand span {
+  /* Footer Title Styling */
+  .footer-title {
     font-size: 30px;
+    font-weight: normal;
     color: white;
-    margin-left: 8px;
   }
   
-  .footer-tagline {
-    font-size: 22px;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 15px;
+  .footer-title .deep {
+    color: #BF016B;
   }
   
+  .footer-title .shield {
+    color: #FF59B5;
+  }
+  
+  /* Footer Links */
   .footer-links {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 10px;
+    gap: 50px;
   }
   
-  .footer-links a {
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-column a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease-in-out;
   }
   
-  .footer-links a:hover {
-    text-decoration: underline;
+  .footer-column a:hover {
+    color: #FF59B5; /* Pink hover effect */
   }
   
-  .copyright {
-    font-size: 14px;
-    color: #FFBDE1;
+  /* Copyright Section */
+  .footer-bottom {
     margin-top: 20px;
+    font-size: 14px;
+    color: #E0B0D5;
   }
   

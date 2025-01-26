@@ -1,0 +1,63 @@
+/* About Section Container */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background: white;
+  }
+  
+  /* Main Content Wrapper */
+  .about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid #FF008D; /* Pink border */
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 1000px;
+    text-align: center;
+  }
+  
+  /* Founder Images */
+  .founders {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .founder-img {
+    width: 100px; /* Adjust size as needed */
+    height: 100px;
+    border-radius: 100%;
+    border: 2px solid #FF008D; /* Pink border around images */
+  }
+  
+  /* Text Section */
+  .about-text {
+    max-width: 600px;
+  }
+  
+  .about-text p {
+    font-size: 18px;
+    color: black;
+    line-height: 1.6;
+  }
+  
+  /* About Us Button */
+  .about-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #FF008D;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .about-btn:hover {
+    background: #D90075; /* Darker pink on hover */
+  }
+  

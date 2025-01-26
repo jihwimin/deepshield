@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 import logo from "../assets/deepshield-logo.png";
 import "../styles/MainPage.css";
 import Footer from "../components/Footer";
+import speakerIcon from "../icons/report-icon.png";
+import heartIcon from "../icons/heart-icon.png";
+import communityIcon from "../icons/community-icon.png";
+import founderOne from "../assets/founderone.png";
+import founderTwo from "../assets/foundertwo.png";
+import "../styles/AboutSection.css";
+import AboutSection from "../components/AboutSection";
+
 
 const Dashboard = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,7 +34,7 @@ const Dashboard = () => {
       {/* Header (Disappears on Scroll) */}
       <header className={`header ${isScrolled ? "hidden" : ""}`}>
         <img src={logo} alt="DeepShield Logo" className="header-logo" />
-        <h1 className="header-title" style={{ fontWeight: "normal" }}>
+        <h1 className="header-title" style={{ fontWeight: "normal", marginRight: "-50px"}}>
           <span className="deep">D</span><span className="black">eep</span>
           <span className="shield">S</span><span className="black">hield</span>
         </h1>
@@ -49,7 +57,7 @@ const Dashboard = () => {
           <div className="nav-links">
             <Link to="/report">Report a Deepfake</Link>
             <Link to="/support">Get Mental Support</Link>
-            <Link to="/community">Join the Community</Link>
+            <Link to="/forum">Join the Community</Link>
             <Link to="/about">About Us</Link>
           </div>
         </div>
@@ -104,21 +112,39 @@ const Dashboard = () => {
         </p>
       </section>
 
-
-      {/* About Section */}
-      <section className="about-section">
-        <div className="about-content">
-          <img src="../assets/founders.png" alt="DeepShield Founders" className="founders-img" />
-          <p>
-            DeepShield was created by two sisters determined to fight deepfake crimes.
-            After the younger sister became a victim herself, they realized how difficult
-            it was to find help and take action. Their mission is to empower victims with
-            the tools, support, and community needed to reclaim control and seek justice.
-          </p>
-          <Link to="/about" className="btn about-btn">About Us</Link>
+      <section className="action-cards">
+      <div className="card-container">
+        {/* Card 1 */}
+        <div className="card">
+          <img src={speakerIcon} alt="Report a Deepfake" className="card-icon" />
+          <div className="card-content">
+            <Link to="/report" className="card-title">Report a Deepfake</Link>
+            <p>Learn how to remove harmful deepfake content and take legal action.</p>
+          </div>
         </div>
-      </section>
 
+        {/* Card 2 */}
+        <div className="card">
+          <img src={heartIcon} alt="Get Mental Support" className="card-icon" />
+          <div className="card-content">
+            <Link to="/support" className="card-title">Get Mental Support</Link>
+            <p>Our AI chatbot provides emotional support and guides you to helpful resources.</p>
+          </div>
+        </div>
+
+        {/* Card 3 */}
+        <div className="card">
+          <img src={communityIcon} alt="Join the Community" className="card-icon" />
+          <div className="card-content">
+            <Link to="/forum" className="card-title">Join the Community</Link>
+            <p>Talk to others who understand and find support in a safe space.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+      <AboutSection />
       {/* Footer */}
       <Footer />
     </div>
