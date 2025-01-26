@@ -1,91 +1,90 @@
 /* Footer Section */
 .footer {
-    background: #81054B; /* Dark purple background */
-    color: white;
-    padding: 50px 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Message at the Top */
-  .footer-message {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .footer-message h2 {
-    font-size: 35px;
-    font-weight: normal;
-  }
-  
-  /* Footer Content Layout */
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1000px;
-    width: 60%;
-    flex-wrap: wrap;
-  }
-  
-  /* Branding Section */
-  .footer-brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .footer-logo {
-    width: 100px; /* Adjust as needed */
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  /* Footer Title Styling */
-  .footer-title {
-    font-size: 30px;
-    font-weight: normal;
-    color: white;
-  }
-  
-  .footer-title .deep {
-    color: #BF016B;
-  }
-  
-  .footer-title .shield {
-    color: #FF59B5;
-  }
-  
-  /* Footer Links */
-  .footer-links {
-    display: flex;
-    gap: 50px;
-  }
-  
-  .footer-column {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .footer-column a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    margin-bottom: 10px;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  .footer-column a:hover {
-    color: #FF59B5; /* Pink hover effect */
-  }
-  
-  /* Copyright Section */
-  .footer-bottom {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #E0B0D5;
-  }
-  
+  background: #81054B; /* Dark purple background */
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Message at the Top */
+.footer-message {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.footer-message h2 {
+  font-size: 35px;
+  font-weight: normal;
+}
+
+/* Footer Content Layout */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  width: 60%;
+  flex-wrap: wrap;
+}
+
+/* Branding Section */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo {
+  width: 100px; /* Adjust as needed */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Footer Title Styling */
+.footer-title {
+  font-size: 30px;
+  font-weight: normal;
+  color: white;
+}
+
+.footer-title .deep {
+  color: #BF016B;
+}
+
+.footer-title .shield {
+  color: #FF59B5;
+}
+
+/* Footer Links */
+.footer-links {
+  display: flex;
+  gap: 50px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin-bottom: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-column a:hover {
+  color: #FF59B5; /* Pink hover effect */
+}
+
+/* Copyright Section */
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #E0B0D5;
+}

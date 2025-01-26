@@ -1,16 +1,13 @@
-import React from "react";
-import "../styles/AboutUs.css";
-import FounderOne from "../assets/foundertwo.png"; // Replace with the actual image path
-import FounderTwo from "../assets/founderone.png"; // Replace with the actual image path
-import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
+import "../styles/AboutUs.css"; // Ensure this CSS file is imported
 import logo from "../assets/deepshield-logo.png";
-import {Link} from "react-router-dom";
-import "../styles/Login.css";
+import Footer from "../components/Footer";
+import FounderOne from "../assets/founderone.png";
+import FounderTwo from "../assets/foundertwo.png";
 
 const AboutUs = () => {
   return (
-    <div className="about-container">
-
+    <div className="main-container">
       {/* Header */}
      <header className="header">
        <img src={logo} alt="DeepShield Logo" className="header-logo" />
@@ -36,14 +33,12 @@ const AboutUs = () => {
      {/* Navigation Bar */}
      <nav className="nav-bar">
        <h1 className="nav-title">
-        <div className="auth-links-container" style={{ marginRight: "-623.5px" }}>
-          <Link to="/dashboard" className="logo-link">
-            <span className="deep">D</span><span className="white">eep</span>
-            <span className="shield">S</span><span className="white">hield</span>
-          </Link>
-        </div>
+         <Link to="/dashboard" className="logo-link">
+           <span className="deep">D</span><span className="white">eep</span>
+           <span className="shield">S</span><span className="white">hield</span>
+         </Link>
        </h1>
-       <div className="auth-links-container" style={{ marginRight: "-150px" }}>
+       <div className="auth-links-container" style={{ marginRight: "100px" }}>
          <div className="nav-links">
            <Link to="/report">Report a Deepfake</Link>
            <Link to="/assistant">Get Mental Support</Link>
@@ -53,12 +48,13 @@ const AboutUs = () => {
        </div>
      </nav>
 
+
       <h1 className="about-title">About Us</h1>
 
       <div className="profile-container">
         {/* Jiin Min's Profile */}
         <div className="profile-card">
-          <img src={FounderOne} alt="Jiin Min" className="profile-img" />
+          <img src={FounderTwo} alt="Jiin Min" className="profile-img" />
           <div className="profile-text">
             <h2>Jiin Min</h2>
             <h3>Data Science<br />Junior</h3>
@@ -82,7 +78,7 @@ const AboutUs = () => {
 
         {/* Jihwi Min's Profile */}
         <div className="profile-card">
-          <img src={FounderTwo} alt="Jihwi Min" className="profile-img" />
+          <img src={FounderOne} alt="Jihwi Min" className="profile-img" />
           <div className="profile-text">
             <h2>Jihwi Min</h2>
             <h3>Computer Science, Data Science, AI<br />Sophomore</h3>
@@ -105,6 +101,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
+      {/* Footer */}
       <Footer />
     </div>
   );

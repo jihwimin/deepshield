@@ -1,85 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:wght@300;400;700&display=swap');
-
-.about-container {
-  background-color: #000000;
-  color: #FFFFFF;
-  text-align: center;
-  font-family: 'Inria Serif', serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /*height: 100vh;*/
-  width: 100%;
-  min-height: 100vh;
-  padding: 50px 0;
-  box-sizing: border-box;
-  border: none;
-}
-
+/* General Styling */
 .about-title {
-  font-size: 3rem;
+  text-align: center;
+  font-size: 36px;
   font-weight: bold;
-  /*margin-bottom: 50px;*/
-  margin-left: 430px;
-  padding: 150px 50px;
+  margin-top: 200px;
+  color: white;
 }
 
+/* Profile Container */
 .profile-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 50px;
-  width: 100%;
+  gap: 40px;
+  margin: 50px auto;
+  max-width: 1000px;
 }
 
+/* Profile Card */
 .profile-card {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: #000000;
-  border: 2px solid #BF016B; /* Keep this for the card */
-  border-radius: 20px;
-  padding: 40px;
-  width: 100%;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 20, 147, 0.3);
   max-width: 900px;
-  margin-left: 450px;
-  text-align: center;
-  box-shadow: 0 0 15px rgba(255, 0, 141, 0.3);
-  position: relative;
-  overflow: hidden;
+  width: 100%;
 }
 
+/* Alternate Layout for Cards */
+.profile-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Profile Images */
 .profile-img {
-  width: 180px;
+  width: 200px;
   height: 200px;
+  border-radius: 50%;
   object-fit: cover;
-  /*border-radius: 10px;*/
-  margin-left: 70px;
-  text-align: center;
+  border: 4px solid #FF008D;
+  margin-right: 30px;
 }
 
+/* Reverse Margin for Even Cards */
+.profile-card:nth-child(even) .profile-img {
+  margin-right: 0;
+  margin-left: 30px;
+}
+
+/* Profile Text */
 .profile-text {
   flex: 1;
-  color: #FFFFFF;
   text-align: left;
-  margin-left: 150px;
+  color: black;
 }
 
+/* Name Styling */
 .profile-text h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-size: 24px;
+  color: #BF016B;
   margin-bottom: 5px;
 }
 
+/* Role Styling */
 .profile-text h3 {
-  font-size: 1.2rem;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: normal;
   margin-bottom: 15px;
+  color: #6D1B46;
+  line-height: 1.4;
 }
 
+/* Description Styling */
 .profile-text p {
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 16px;
   line-height: 1.6;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-img {
+    margin: 0 0 20px 0;
+  }
+
+  .profile-card:nth-child(even) .profile-img {
+    margin: 0 0 20px 0;
+  }
+
+  .profile-text {
+    text-align: center;
+  }
 }
