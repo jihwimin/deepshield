@@ -17,6 +17,7 @@
     padding: 40px;
     max-width: 1000px;
     text-align: center;
+    background: white;
   }
   
   /* Founder Images */
@@ -39,7 +40,7 @@
   
   .about-text p {
     font-size: 18px;
-    color: black;
+    color: white;
     line-height: 1.6;
   }
   
