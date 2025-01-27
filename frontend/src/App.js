@@ -26,8 +26,8 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Register />} />
-          <Route path="/" element={<ProtectedRoute component={Dashboard} />} />
-          <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />} />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/community" element={<Community />} /> 
           <Route path="/create-post" element={<CreatePost />} /> 
           <Route path="/posts/:id" element={<PostDetail />} /> 
