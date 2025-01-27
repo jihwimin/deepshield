@@ -50,7 +50,7 @@ const App = () => {
 
 const ProtectedRoute = ({ component: Component }) => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
-  return storedUser ? <Component /> : <Navigate to="/login" />;
+  return storedUser ? <Component /> : <Navigate to="/dashboard" />;
 };
 
 
