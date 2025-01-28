@@ -10,15 +10,17 @@ const app = express();
 
 // Middleware
 //app.use(cors());
-//app.use(cors({ origin: "*" })); // temp fix
+const cookieParser = require("cookie-parser");
+
 const corsOptions = {
-  origin: ["https://deepshield-production.up.railway.app", "http://localhost:3000"],
+  origin: "*",  // ✅ Allow all origins for testing
   credentials: true,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: "Content-Type, Authorization",
 };
 
 app.use(cors(corsOptions));
+app.use(cookieParser());
 app.use(express.json());
 
 // Connect to MongoDB

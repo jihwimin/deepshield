@@ -11,6 +11,12 @@ const isValidPassword = (password) => {
   return /^(?=.*[A-Z]).{8,}$/.test(password);
 };
 
+router.get("/test", (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  res.json({ message: "Auth API is working!" });
+});
+
+
 // REGISTER USER
 router.post("/register", async (req, res) => {
   const { username, password, nickname } = req.body;
@@ -56,5 +62,7 @@ router.post("/login", async (req, res) => {
     res.status(500).json({ error: "Login failed" });
   }
 });
+
+
 
 module.exports = router;
