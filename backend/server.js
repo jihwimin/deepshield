@@ -6,10 +6,11 @@ const path = require("path");
 
 require("dotenv").config();
 
-const app = express();  // ✅ Define app BEFORE using it
+const app = express(); 
 
 // Middleware
-app.use(cors());
+//app.use(cors());
+app.use(cors({ origin: "*" })); // temp fix
 app.use(express.json());
 
 // Connect to MongoDB
@@ -22,6 +23,10 @@ app.use("/api/auth", require("./routes/auth.js"));
 app.use("/api/chatbot", require("./routes/chatbot.js"));
 app.use("/api/forum", require("./routes/forum.js"));
 app.use("/api/mental-care", require("./routes/mentalCare.js"));
+
+app.get("/api/health", (req, res) => {
+  res.json({ message: "API is working correctly" });
+});
 
 // ✅ Serve frontend **AFTER API routes**
 if (process.env.NODE_ENV === "production") {
