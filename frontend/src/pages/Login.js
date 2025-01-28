@@ -1,11 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import API_BASE_URL from "../config";
+//import API_BASE_URL from "../config";
 import AuthContext from "../context/AuthContext";
 import "../styles/Login.css";
 import logo from "../assets/deepshield-logo.png";
 import Footer from "../components/Footer";
+const API_BASE_URL = window.API_BASE_URL;
 
 const Login = () => {
   const { login } = useContext(AuthContext);
