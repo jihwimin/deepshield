@@ -10,7 +10,15 @@ const app = express();
 
 // Middleware
 //app.use(cors());
-app.use(cors({ origin: "*" })); // temp fix
+//app.use(cors({ origin: "*" })); // temp fix
+const corsOptions = {
+  origin: ["https://deepshield-production.up.railway.app", "http://localhost:3000"],
+  credentials: true,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: "Content-Type, Authorization",
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Connect to MongoDB
